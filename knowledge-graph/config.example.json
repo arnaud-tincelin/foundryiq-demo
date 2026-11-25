@@ -1,0 +1,16 @@
+{
+  "tenantId": "00000000-0000-0000-0000-000000000000",
+  "subscriptionId": "00000000-0000-0000-0000-000000000001",
+  "searchEndpoint": "https://example-iq.search.windows.net",
+  "indexPrefix": "lot-trace-demo-01",
+  "projectEndpoint": "https://example-foundry.services.ai.azure.com/api/projects/manufacturing-lot-trace",
+  "projectId": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/rg-manufacturing-lot-trace/providers/Microsoft.CognitiveServices/accounts/example-foundry/projects/manufacturing-lot-trace",
+  "openaiEndpoint": "https://example-foundry.openai.azure.com",
+  "embeddingDeployment": "text-embedding-3-small",
+  "chatDeployment": "gpt-5.6-luna",
+  "plannerDeployment": "gpt-5-mini",
+  "productionContainer": "https://exampleproduction.blob.core.windows.net/production",
+  "graphContainer": "https://exampleproduction.blob.core.windows.net/graph-input",
+  "graphStorageResourceId": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/rg-manufacturing-lot-trace/providers/Microsoft.Storage/storageAccounts/exampleproduction",
+  "warehouseContainer": "https://examplewarehouse.blob.core.windows.net/warehouse"
+}

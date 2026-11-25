@@ -1,0 +1,88 @@
+{
+  "scenario": "Manufacturing lot traceability for quality hold QH-014",
+  "synthetic": true,
+  "questions": [
+    {
+      "id": "fact-hold",
+      "prompt": "Which incoming sensor lot does quality hold QH-014 apply to?",
+      "holdId": "QH-014",
+      "expectedLot": "SL-2407",
+      "requiredEvidence": [{"source": "quality-blob", "recordId": "QH-014"}]
+    },
+    {
+      "id": "delivered-impact",
+      "prompt": "Which customer sites are confirmed to have received finished lots affected by quality hold QH-014? For each, show the sensor lot, assembly lot, finished lot, and shipment ID, with the source records for each step.",
+      "holdId": "QH-014",
+      "expectedPaths": [
+        {
+          "sensorLot": "SL-2407",
+          "assemblyLot": "AL-301",
+          "finishedLot": "FL-801",
+          "shipment": "SH-901",
+          "customerSite": "CS-021",
+          "customerSiteName": "Cedar Vale Cartoning Plant",
+          "evidence": {
+            "appliesTo": {"source": "quality-blob", "recordId": "QH-014"},
+            "consumedIn": {"source": "production-blob", "recordId": "MIA-041-01"},
+            "usedToBuild": {"source": "production-blob", "recordId": "BT-040-01"},
+            "loadedOn": {"source": "warehouse-blob", "recordId": "SH-901"},
+            "deliveredTo": {"source": "quality-blob", "recordId": "POD-901"}
+          }
+        },
+        {
+          "sensorLot": "SL-2407",
+          "assemblyLot": "AL-302",
+          "finishedLot": "FL-802",
+          "shipment": "SH-902",
+          "customerSite": "CS-044",
+          "customerSiteName": "Raven Quay Wrapping Works",
+          "evidence": {
+            "appliesTo": {"source": "quality-blob", "recordId": "QH-014"},
+            "consumedIn": {"source": "production-blob", "recordId": "MIB-018-01"},
+            "usedToBuild": {"source": "production-blob", "recordId": "BT-070-01"},
+            "loadedOn": {"source": "warehouse-blob", "recordId": "SH-902"},
+            "deliveredTo": {"source": "quality-blob", "recordId": "POD-902"}
+          }
+        }
+      ],
+      "excludedFinishedLots": ["FL-803", "FL-804"],
+      "excludedShipments": ["SH-905"]
+    },
+    {
+      "id": "different-lot-same-part",
+      "prompt": "Which customer site received finished lots built with released sensor lot SL-2408?",
+      "sensorLot": "SL-2408",
+      "expectedPaths": [
+        {
+          "sensorLot": "SL-2408",
+          "assemblyLot": "AL-303",
+          "finishedLot": "FL-804",
+          "shipment": "SH-904",
+          "customerSite": "CS-063",
+          "customerSiteName": "Larkspur Bay Packing Site",
+          "evidence": {
+            "consumedIn": {"source": "production-blob", "recordId": "MIA-041-02"},
+            "usedToBuild": {"source": "production-blob", "recordId": "BT-040-03"},
+            "loadedOn": {"source": "warehouse-blob", "recordId": "SH-904"},
+            "deliveredTo": {"source": "quality-blob", "recordId": "POD-904"}
+          }
+        }
+      ]
+    },
+    {
+      "id": "not-dispatched",
+      "prompt": "Has finished lot FL-803 been dispatched from the warehouse?",
+      "finishedLot": "FL-803",
+      "expectedDispatched": false,
+      "requiredEvidence": [{"source": "warehouse-blob", "recordId": "FG-083"}]
+    },
+    {
+      "id": "unconfirmed-receipt",
+      "prompt": "Do these records confirm that shipment SH-905 reached a customer site?",
+      "shipment": "SH-905",
+      "expectedDispatched": true,
+      "expectedReceiptConfirmed": false,
+      "requiredEvidence": [{"source": "warehouse-blob", "recordId": "SH-905"}]
+    }
+  ]
+}

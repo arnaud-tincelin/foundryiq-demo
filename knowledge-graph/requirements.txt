@@ -1,0 +1,2 @@
+--index-url https://packagefeedproxy.microsoft.io/pypi/simple
+azure-identity>=1.25,<2

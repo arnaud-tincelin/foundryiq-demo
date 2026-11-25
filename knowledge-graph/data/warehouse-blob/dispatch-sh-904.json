@@ -1,0 +1,8 @@
+{
+  "kind": "dispatch",
+  "recordId": "SH-904",
+  "shipmentId": "SH-904",
+  "finishedLotId": "FL-804",
+  "status": "dispatched",
+  "note": "The loader verified the finished lot against the manifest before release."
+}

@@ -1,0 +1,8 @@
+{
+  "kind": "inventory",
+  "recordId": "FG-083",
+  "finishedLotId": "FL-803",
+  "status": "blocked-in-warehouse",
+  "dispatched": false,
+  "note": "FL-803 remains in the manufacturer's warehouse. No units from the lot have left the warehouse."
+}

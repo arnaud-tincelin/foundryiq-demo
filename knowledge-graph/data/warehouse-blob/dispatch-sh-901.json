@@ -1,0 +1,8 @@
+{
+  "kind": "dispatch",
+  "recordId": "SH-901",
+  "shipmentId": "SH-901",
+  "finishedLotId": "FL-801",
+  "status": "dispatched",
+  "note": "The warehouse loaded part of FL-801 on this shipment and released it to the carrier."
+}

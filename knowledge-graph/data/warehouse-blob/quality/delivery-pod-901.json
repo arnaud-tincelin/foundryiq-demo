@@ -1,0 +1,8 @@
+{
+  "kind": "proof-of-delivery",
+  "recordId": "POD-901",
+  "shipmentId": "SH-901",
+  "customerSiteId": "CS-021",
+  "customerSiteName": "Cedar Vale Cartoning Plant",
+  "status": "confirmed"
+}

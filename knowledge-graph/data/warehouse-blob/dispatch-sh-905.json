@@ -1,0 +1,8 @@
+{
+  "kind": "dispatch",
+  "recordId": "SH-905",
+  "shipmentId": "SH-905",
+  "finishedLotId": "FL-801",
+  "status": "dispatched",
+  "note": "The remaining portion of FL-801 left the warehouse. The carrier acknowledged collection; no signed customer receipt is on file at this snapshot."
+}

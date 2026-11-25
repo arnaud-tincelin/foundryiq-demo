@@ -1,0 +1,8 @@
+{
+  "kind": "proof-of-delivery",
+  "recordId": "POD-902",
+  "shipmentId": "SH-902",
+  "customerSiteId": "CS-044",
+  "customerSiteName": "Raven Quay Wrapping Works",
+  "status": "confirmed"
+}

@@ -1,0 +1,8 @@
+{
+  "kind": "quality-hold",
+  "recordId": "QH-014",
+  "sensorLotId": "SL-2407",
+  "partNumber": "VS-18",
+  "status": "held",
+  "note": "A retained sample did not meet acceptance criteria. Some units had already been issued. Lot SL-2408 is not covered by this hold."
+}

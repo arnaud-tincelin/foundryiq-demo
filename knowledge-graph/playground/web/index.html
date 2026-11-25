@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lot Trace | Foundry IQ Playground</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-content">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M7 23 16 8l9 15H7" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="7" cy="23" r="3"/><circle cx="16" cy="8" r="3"/><circle cx="25" cy="23" r="3"/>
+        </svg>
+        <span>Lot Trace</span>
+      </div>
+      <span class="badge"><span class="dot"></span> Microsoft Foundry IQ</span>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="intro" aria-labelledby="title">
+      <p class="eyebrow">Foundry IQ retrieval comparison</p>
+      <h1 id="title">Trace a manufacturing lot</h1>
+      <p>Ask one question, then compare answers and evidence from a knowledge graph and document-only search over the same Blob records.</p>
+    </section>
+
+    <div class="workspace">
+      <section class="panel query-panel" aria-labelledby="query-title">
+        <h2 id="query-title">Ask both knowledge bases</h2>
+        <form id="query-form">
+          <label for="question">Your traceability question</label>
+          <textarea id="question" name="question" rows="4" maxlength="400" required>Which customer sites are confirmed to have received finished lots affected by quality hold QH-014? For each, show the sensor lot, assembly lot, finished lot, and shipment ID, with the source records for each step.</textarea>
+          <div class="form-actions">
+            <button class="primary" id="run" type="submit">Compare both <span aria-hidden="true">&rarr;</span></button>
+            <span class="keyboard">Ctrl + Enter to run</span>
+          </div>
+        </form>
+        <div class="presets" aria-label="Example questions">
+          <button type="button" data-example="hold">Quality hold QH-014</button>
+          <button type="button" data-example="released">Released lot SL-2408</button>
+          <button type="button" data-example="receipt">Unconfirmed shipment SH-905</button>
+        </div>
+      </section>
+
+      <aside class="panel outline" aria-labelledby="schema-title">
+        <p class="eyebrow">One corpus, two knowledge bases</p>
+        <h2 id="schema-title">The path to receipt</h2>
+        <ol class="chain">
+          <li>Quality hold</li>
+          <li>Sensor lot</li>
+          <li>Assembly lot</li>
+          <li>Finished lot</li>
+          <li>Shipment</li>
+          <li>Customer site</li>
+        </ol>
+        <p>The graph can follow these relationships. Document-only search answers from ranked excerpts without tracing a path.</p>
+      </aside>
+    </div>
+
+    <p id="status" role="status" aria-live="polite" class="status">Ready to search both live knowledge bases.</p>
+    <p id="error" role="alert" class="error" hidden></p>
+
+    <section id="results" class="results" hidden aria-labelledby="result-title">
+      <header class="result-header">
+        <div>
+          <p class="eyebrow">Live comparison</p>
+          <h2 id="result-title">Same question, two results</h2>
+        </div>
+        <p class="evidence-note">Opening originals requires Azure Storage access.</p>
+      </header>
+      <p class="overlap" id="overlap" hidden></p>
+      <div class="comparison">
+        <section class="panel kb-result" aria-labelledby="graph-title">
+          <p class="eyebrow">With an entity graph</p>
+          <h3 id="graph-title">Knowledge graph</h3>
+          <div id="graph-output"></div>
+        </section>
+        <section class="panel kb-result" aria-labelledby="documents-title">
+          <p class="eyebrow">Without an entity graph</p>
+          <h3 id="documents-title">Documents only</h3>
+          <div id="documents-output"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

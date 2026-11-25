@@ -1,0 +1,20 @@
+{
+  "@context": {
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "m": "https://example.com/ontology/lot-trace#"
+  },
+  "@graph": [
+    {"@id": "m:QualityHold", "@type": "owl:Class", "rdfs:comment": "Quality hold notice identified by its exact QH-number."},
+    {"@id": "m:SensorLot", "@type": "owl:Class", "rdfs:comment": "Incoming sensor material lot identified by its exact SL-number, never by part number."},
+    {"@id": "m:AssemblyLot", "@type": "owl:Class", "rdfs:comment": "Intermediate assembly lot identified by its exact AL-number."},
+    {"@id": "m:FinishedLot", "@type": "owl:Class", "rdfs:comment": "Finished production lot identified by its exact FL-number, never by product model."},
+    {"@id": "m:Shipment", "@type": "owl:Class", "rdfs:comment": "Warehouse shipment identified by its exact SH-number."},
+    {"@id": "m:CustomerSite", "@type": "owl:Class", "rdfs:comment": "Customer receiving site. Use the exact CS-number alone as the canonical name; a site name is only contextual."},
+    {"@id": "m:appliesTo", "@type": "owl:ObjectProperty", "rdfs:domain": {"@id": "m:QualityHold"}, "rdfs:range": {"@id": "m:SensorLot"}, "rdfs:comment": "A confirmed quality hold applies to this particular sensor lot."},
+    {"@id": "m:consumedIn", "@type": "owl:ObjectProperty", "rdfs:domain": {"@id": "m:SensorLot"}, "rdfs:range": {"@id": "m:AssemblyLot"}, "rdfs:comment": "A sensor lot was actually consumed in an assembly lot, not merely planned."},
+    {"@id": "m:usedToBuild", "@type": "owl:ObjectProperty", "rdfs:domain": {"@id": "m:AssemblyLot"}, "rdfs:range": {"@id": "m:FinishedLot"}, "rdfs:comment": "An assembly lot was used to produce a completed finished lot."},
+    {"@id": "m:loadedOn", "@type": "owl:ObjectProperty", "rdfs:domain": {"@id": "m:FinishedLot"}, "rdfs:range": {"@id": "m:Shipment"}, "rdfs:comment": "A finished lot or part of it was actually loaded and dispatched on the shipment."},
+    {"@id": "m:deliveredTo", "@type": "owl:ObjectProperty", "rdfs:domain": {"@id": "m:Shipment"}, "rdfs:range": {"@id": "m:CustomerSite"}, "rdfs:comment": "The shipment has a confirmed signed delivery at the customer site. Never derive delivery from dispatch or the absence of a receipt."}
+  ]
+}

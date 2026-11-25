@@ -1,0 +1,8 @@
+{
+  "kind": "proof-of-delivery",
+  "recordId": "POD-904",
+  "shipmentId": "SH-904",
+  "customerSiteId": "CS-063",
+  "customerSiteName": "Larkspur Bay Packing Site",
+  "status": "confirmed"
+}
